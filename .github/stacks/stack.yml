@@ -26,7 +26,6 @@ configs:
           - name: DeploySecret
             value: ${{ inputs.DeploySecret }}
             
-  environments: 
     - name: prod
       parameters: 
         custom-branch-policies:
