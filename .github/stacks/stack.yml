@@ -1,0 +1,36 @@
+name: bug test sundar 1
+description: Tests out env settings
+
+inputs:
+  - name: ProductionEnvReviewer
+    type: string
+  - name: DeploySecret
+    type: string
+  
+configs:
+  environments: 
+    - name: staging
+      parameters: 
+        protected-branches: false
+        custom-branch-policies:
+          - main/*
+          - releases/*
+        wait-timer: 50
+        reviewers:
+          - name: ${{ inputs.ProductionEnvReviewer }}
+            type: User
+        secrets:
+          - name: DeploySecret
+            value: ${{ inputs.DeploySecret }}
+            
+  environments: 
+    - name: prod
+      parameters: 
+        protected-branches: true
+        custom-branch-policies:
+          - main/*
+          - releases/*
+        reviewers:
+          - name: ${{ inputs.ProductionEnvReviewer }}
+            type: User
+
