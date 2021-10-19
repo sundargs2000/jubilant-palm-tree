@@ -1,5 +1,8 @@
 name: bug test sundar 1
 description: Tests out env settings
+branding:
+  icon: activity
+  color: blue
 
 inputs:
   - name: ProductionEnvReviewer
