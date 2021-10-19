@@ -29,7 +29,6 @@ configs:
   environments: 
     - name: prod
       parameters: 
-        protected-branches: true
         custom-branch-policies:
           - main/*
           - releases/*
