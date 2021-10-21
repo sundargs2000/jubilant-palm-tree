@@ -9,7 +9,7 @@ inputs:
     type: string
   - name: DeploySecret
     type: string
-    is_secret: true
+    is-secret: true
   
 configs:
   environments: 
