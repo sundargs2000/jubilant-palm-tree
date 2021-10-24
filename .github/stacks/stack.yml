@@ -13,6 +13,41 @@ inputs:
   
 configs:
   environments: 
+    - name: env1
+      parameters: 
+        protected-branches: false
+
+    - name: env2
+      parameters: 
+        custom-branch-policies:
+          - main/*
+          - releases*
+
+    - name: env3
+      parameters: 
+        wait-timer: 50
+
+    - name: env4
+      parameters: 
+        reviewers:
+          - name: ${{ inputs.ProductionEnvReviewer }}
+            type: User
+
+    - name: env5
+      parameters: 
+        secrets:
+          - name: DeploySecret
+            value: ${{ inputs.DeploySecret }}
+
+    - name: env6
+      parameters: 
+        reviewers:
+          - name: ${{ inputs.ProductionEnvReviewer }}
+            type: User
+        secrets:
+          - name: DeploySecret
+            value: ${{ inputs.DeploySecret }}
+
     - name: staging
       parameters: 
         protected-branches: false
@@ -25,7 +60,7 @@ configs:
             type: User
         secrets:
           - name: DeploySecret
-            value: ok
+            value: ${{ inputs.DeploySecret }}
             
     - name: prod
       parameters: 
