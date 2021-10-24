@@ -25,7 +25,7 @@ configs:
             type: User
         secrets:
           - name: DeploySecret
-            value: ${{ inputs.DeploySecret }}
+            value: ok
             
     - name: prod
       parameters: 
